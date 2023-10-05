@@ -31,7 +31,7 @@ pipeline{
             stage('Run a rollout restart'){
                 steps{
                     sh '''
-                    kubectl apply -f .
+                    kubectl apply -f ./k8s
                     kubectl rollout restart deployment flask-deployment
                     '''
                 }

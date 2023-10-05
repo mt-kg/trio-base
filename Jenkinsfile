@@ -31,7 +31,9 @@ pipeline{
             stage('Run a rollout restart'){
                 steps{
                     sh '''
-                    kubectl apply -f ./k8s
+                    kubectl apply -f ./k8s/flask.yaml
+                    kubectl apply -f ./k8s/mysql.yaml
+                    kubectl apply -f ./k8s/nginx.yaml
                     kubectl rollout restart deployment flask-deployment
                     '''
                 }
